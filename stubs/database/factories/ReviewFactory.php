@@ -14,10 +14,10 @@ class ReviewFactory extends Factory
         return [
             'team_id' => 1,
             'user_id' => 1,
-            'reviewable_type' => "App\\Models\\Item",
+            'reviewable_type' => 'App\\Models\\Item',
             'reviewable_id' => 1,
             'rating' => 4,
-            'comment' => $this->faker->paragraph()
+            'comment' => $this->faker->paragraph(),
         ];
     }
 }
