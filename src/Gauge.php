@@ -217,7 +217,7 @@ final class Gauge
     /**
      * Sets reviews table name.
      *
-     * @param  bool  $value
+     * @param  string  $value
      * @return static
      */
     public static function useReviewsTableName(string $value)
