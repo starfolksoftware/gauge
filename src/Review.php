@@ -2,10 +2,8 @@
 
 namespace StarfolkSoftware\Gauge;
 
-use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 abstract class Review extends Model
 {
@@ -34,7 +32,7 @@ abstract class Review extends Model
 
     /**
      * Returns the table name.
-     * 
+     *
      * @return string
      */
     public function getTable(): string
@@ -54,7 +52,7 @@ abstract class Review extends Model
 
     /**
      * Returns the rewiewable.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function reviewable()
@@ -64,7 +62,7 @@ abstract class Review extends Model
 
     /**
      * Returns the user.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()

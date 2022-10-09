@@ -4,7 +4,6 @@ namespace StarfolkSoftware\Gauge\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Orchestra\Testbench\TestCase as Orchestra;
 use StarfolkSoftware\Gauge\GaugeServiceProvider;

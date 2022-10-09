@@ -8,11 +8,10 @@ trait Reviewable
 {
     /**
      * Leaves a review on the model.
-     * 
-     * @param mixed $user
-     * @param int $rating
-     * @param string|null $comment
-     * 
+     *
+     * @param  mixed  $user
+     * @param  int  $rating
+     * @param  string|null  $comment
      * @return void
      */
     public function review($user, int $rating, $comment = null)
@@ -38,7 +37,7 @@ trait Reviewable
 
     /**
      * Retrieves the reviews of the model.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\morphMany
      */
     public function reviews()
@@ -48,7 +47,7 @@ trait Reviewable
 
     /**
      * Returns the latest review.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Casts\Attribute
      */
     public function latestReview(): Attribute
@@ -58,7 +57,7 @@ trait Reviewable
 
     /**
      * Calculates the avarage rating
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Casts\Attribute
      */
     public function averageRating(): Attribute
@@ -68,7 +67,7 @@ trait Reviewable
 
     /**
      * Calculates the total value of ratings
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Casts\Attribute
      */
     public function totalRating(): Attribute
@@ -78,7 +77,7 @@ trait Reviewable
 
     /**
      * Returns the reviews count
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Casts\Attribute
      */
     public function reviewsCount()
@@ -88,7 +87,7 @@ trait Reviewable
 
     /**
      * Returns the count of the users that have rated.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Casts\Attribute
      */
     public function usersCount()
