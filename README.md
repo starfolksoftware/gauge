@@ -76,7 +76,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Faruk Nasir](https://github.com/starfolksoftware)
+- [Faruk Nasir](https://github.com/frknasir)
 - [All Contributors](../../contributors)
 
 ## License
