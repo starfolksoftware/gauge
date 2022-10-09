@@ -1,19 +1,11 @@
-# Gauge is a simple Laravel package that makes your models reviewable
+# Laravel Gauge
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/starfolksoftware/gauge.svg?style=flat-square)](https://packagist.org/packages/starfolksoftware/gauge)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/starfolksoftware/gauge/run-tests?label=tests)](https://github.com/starfolksoftware/gauge/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/starfolksoftware/gauge/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/starfolksoftware/gauge/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/starfolksoftware/gauge.svg?style=flat-square)](https://packagist.org/packages/starfolksoftware/gauge)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/gauge.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/gauge)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+Add reviews and ratings capabilities to your Laravel applications.
 
 ## Installation
 
@@ -23,33 +15,103 @@ You can install the package via composer:
 composer require starfolksoftware/gauge
 ```
 
-You can publish and run the migrations with:
+To install the package, run the following command:
 
 ```bash
-php artisan vendor:publish --tag="gauge-migrations"
-php artisan migrate
+php artisan gauge:install
 ```
 
-You can publish the config file with:
+## Configurations
 
-```bash
-php artisan vendor:publish --tag="gauge-config"
-```
-
-This is the contents of the published config file:
+To disable migrations, add the following in the service provider:
 
 ```php
-return [
-];
+Gauge::ignoreMigrations();
 ```
 
-Optionally, you can publish the views using
+To use a different `Review` model:
 
-```bash
-php artisan vendor:publish --tag="gauge-views"
+```php
+Gauge::useReviewModel('App\\Models\\CoolReviewModel');
+```
+
+To specify the user model to be used with Gauge:
+
+```php
+Gauge::useUserModel('App\\Models\\UserTestModel');
+```
+
+To specify the reviews table name,
+
+```php
+Gauge::useReviewsTableName('reviews_table');
+```
+
+To turn on support for soft deletiong,
+
+```php
+Gauge::supportsSoftDeletes();
+```
+
+To turn on support or single reviews, that is, each user can only review a model at most once:
+
+```php
+Gauge::supportsSingleReviews();
+```
+
+To turn on support for teams
+
+```php
+Gauge::supportsTeams();
 ```
 
 ## Usage
+
+To make a model reviewable, add the `Reviewable` trait as in the following:
+
+```php
+use StarfolkSoftware\Gauge\Reviewable;
+
+class Item extends Model
+{
+    // ...
+    use Reviewable;
+    // ...
+}
+```
+
+To create a review on a reviewable model,
+
+```php
+$branch->review($user, $rating, $comment)
+```
+
+To setup the team support, add the `TeamHasReviews` trait to the team model,
+
+```php
+use StarfolkSoftware\Gauge\TeamHasReviews;
+
+class Team extends Model
+{
+    use TeamHasReviews;
+
+    protected $table = 'teams';
+}
+```
+
+To create a review for a team,
+
+```php
+$team->reviews()->save([
+    //...
+]);
+```
+
+To fetch reviews of a team,
+
+```php
+$team->reviews
+```
 
 ```php
 $gauge = new StarfolkSoftware\Gauge();
