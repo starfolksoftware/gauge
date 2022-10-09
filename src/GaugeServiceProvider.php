@@ -4,7 +4,7 @@ namespace StarfolkSoftware\Gauge;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use StarfolkSoftware\Gauge\Commands\GaugeCommand;
+use StarfolkSoftware\Gauge\Commands\InstallCommand;
 
 class GaugeServiceProvider extends PackageServiceProvider
 {
@@ -18,8 +18,10 @@ class GaugeServiceProvider extends PackageServiceProvider
         $package
             ->name('gauge')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_gauge_table')
-            ->hasCommand(GaugeCommand::class);
+            ->hasCommand(InstallCommand::class);
+
+        if (Gauge::$runsMigrations) {
+            $package->hasMigration('create_gauge_table');
+        }
     }
 }
