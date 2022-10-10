@@ -20,7 +20,7 @@ return new class extends Migration
 
             $table->timestamps();
 
-            if (config('gauge.soft_deletion')) {
+            if (Gauge::$supportsSoftDeletes) {
                 $table->softDeletes();
             }
         });

@@ -19,7 +19,7 @@ class InstallCommand extends Command
     public function handle(): int
     {
         // Publish...
-        $this->callSilent('vendor:publish', ['--tag' => 'gauge-config', '--force' => true]);
+        $this->callSilent('vendor:publish', ['--tag' => 'gauge-', '--force' => true]);
         $this->callSilent('vendor:publish', ['--tag' => 'gauge-migrations', '--force' => true]);
 
         // Models...
