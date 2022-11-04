@@ -113,11 +113,6 @@ To fetch reviews of a team,
 $team->reviews
 ```
 
-```php
-$gauge = new StarfolkSoftware\Gauge();
-echo $gauge->echoPhrase('Hello, StarfolkSoftware!');
-```
-
 ## Testing
 
 ```bash
