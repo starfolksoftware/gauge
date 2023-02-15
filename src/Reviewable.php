@@ -10,7 +10,6 @@ trait Reviewable
      * Leaves a review on the model.
      *
      * @param  mixed  $user
-     * @param  int  $rating
      * @param  string|null  $comment
      * @return void
      */
@@ -47,8 +46,6 @@ trait Reviewable
 
     /**
      * Returns the latest review.
-     *
-     * @return \Illuminate\Database\Eloquent\Casts\Attribute
      */
     public function latestReview(): Attribute
     {
@@ -57,8 +54,6 @@ trait Reviewable
 
     /**
      * Calculates the avarage rating
-     *
-     * @return \Illuminate\Database\Eloquent\Casts\Attribute
      */
     public function averageRating(): Attribute
     {
@@ -67,8 +62,6 @@ trait Reviewable
 
     /**
      * Calculates the total value of ratings
-     *
-     * @return \Illuminate\Database\Eloquent\Casts\Attribute
      */
     public function totalRating(): Attribute
     {

@@ -73,7 +73,6 @@ final class Gauge
     /**
      * Specify the team model that should be used by Gauge.
      *
-     * @param  string  $model
      * @return static
      */
     public static function useTeamModel(string $model)
@@ -131,7 +130,6 @@ final class Gauge
     /**
      * Specify the review model that should be used by Gauge.
      *
-     * @param  string  $model
      * @return static
      */
     public static function useReviewModel(string $model)
@@ -156,7 +154,6 @@ final class Gauge
     /**
      * Configure Gauge to support multiple teams.
      *
-     * @param  bool  $value
      * @return static
      */
     public static function supportsTeams(bool $value = true)
@@ -191,7 +188,6 @@ final class Gauge
     /**
      * Specify the user model that should be used by Gauge.
      *
-     * @param  string  $model
      * @return static
      */
     public static function useUserModel(string $model)
@@ -204,7 +200,6 @@ final class Gauge
     /**
      * Configure Gauge to support soft delete.
      *
-     * @param  bool  $value
      * @return static
      */
     public static function supportsSoftDeletes(bool $value = true)
@@ -217,7 +212,6 @@ final class Gauge
     /**
      * Sets reviews table name.
      *
-     * @param  string  $value
      * @return static
      */
     public static function useReviewsTableName(string $value)
@@ -230,7 +224,6 @@ final class Gauge
     /**
      * Sets reviews table name.
      *
-     * @param  bool  $value
      * @return static
      */
     public static function supportsSingleReviews(bool $value = true)
