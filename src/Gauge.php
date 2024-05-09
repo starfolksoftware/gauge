@@ -67,7 +67,7 @@ final class Gauge
      */
     public static function teamModel()
     {
-        return static::$teamModel;
+        return self::$teamModel;
     }
 
     /**
@@ -77,9 +77,9 @@ final class Gauge
      */
     public static function useTeamModel(string $model)
     {
-        static::$teamModel = $model;
+        self::$teamModel = $model;
 
-        return new static();
+        return new self();
     }
 
     /**
@@ -89,7 +89,7 @@ final class Gauge
      */
     public static function newTeamModel()
     {
-        $model = static::teamModel();
+        $model = self::teamModel();
 
         return new $model();
     }
@@ -102,7 +102,7 @@ final class Gauge
      */
     public static function findTeamByIdOrFail($id)
     {
-        return static::newTeamModel()->whereId($id)->firstOrFail();
+        return self::newTeamModel()->whereId($id)->firstOrFail();
     }
 
     /**
@@ -112,7 +112,7 @@ final class Gauge
      */
     public static function reviewModel()
     {
-        return static::$reviewModel;
+        return self::$reviewModel;
     }
 
     /**
@@ -122,7 +122,7 @@ final class Gauge
      */
     public static function newReviewModel()
     {
-        $model = static::reviewModel();
+        $model = self::reviewModel();
 
         return new $model();
     }
@@ -134,9 +134,9 @@ final class Gauge
      */
     public static function useReviewModel(string $model)
     {
-        static::$reviewModel = $model;
+        self::$reviewModel = $model;
 
-        return new static();
+        return new self();
     }
 
     /**
@@ -146,9 +146,9 @@ final class Gauge
      */
     public static function ignoreMigrations()
     {
-        static::$runsMigrations = false;
+        self::$runsMigrations = false;
 
-        return new static();
+        return new self();
     }
 
     /**
@@ -158,9 +158,9 @@ final class Gauge
      */
     public static function supportsTeams(bool $value = true)
     {
-        static::$supportsTeams = $value;
+        self::$supportsTeams = $value;
 
-        return new static();
+        return new self();
     }
 
     /**
@@ -170,7 +170,7 @@ final class Gauge
      */
     public static function userModel()
     {
-        return static::$userModel;
+        return self::$userModel;
     }
 
     /**
@@ -180,7 +180,7 @@ final class Gauge
      */
     public static function newUserModel()
     {
-        $model = static::userModel();
+        $model = self::userModel();
 
         return new $model();
     }
@@ -192,9 +192,9 @@ final class Gauge
      */
     public static function useUserModel(string $model)
     {
-        static::$userModel = $model;
+        self::$userModel = $model;
 
-        return new static();
+        return new self();
     }
 
     /**
@@ -204,9 +204,9 @@ final class Gauge
      */
     public static function supportsSoftDeletes(bool $value = true)
     {
-        static::$supportsSoftDeletes = $value;
+        self::$supportsSoftDeletes = $value;
 
-        return new static();
+        return new self();
     }
 
     /**
@@ -216,9 +216,9 @@ final class Gauge
      */
     public static function useReviewsTableName(string $value)
     {
-        static::$reviewsTableName = $value;
+        self::$reviewsTableName = $value;
 
-        return new static();
+        return new self();
     }
 
     /**
@@ -228,8 +228,8 @@ final class Gauge
      */
     public static function supportsSingleReviews(bool $value = true)
     {
-        static::$supportsSingleReviews = $value;
+        self::$supportsSingleReviews = $value;
 
-        return new static();
+        return new self();
     }
 }
