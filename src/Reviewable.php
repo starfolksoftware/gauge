@@ -6,10 +6,6 @@ trait Reviewable
 {
     /**
      * Leaves a review on the model.
-     *
-     * @param  mixed  $user
-     * @param  string|null  $comment
-     * @return void
      */
     public function review($user, int $rating, $comment = null)
     {
@@ -30,6 +26,8 @@ trait Reviewable
         $review->comment = $comment;
 
         $review->save();
+
+        return $review->fresh();
     }
 
     /**
