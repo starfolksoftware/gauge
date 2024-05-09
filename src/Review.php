@@ -12,7 +12,7 @@ abstract class Review extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array
+     * @var array<int, string>
      */
     protected $fillable = [
         'team_id',
