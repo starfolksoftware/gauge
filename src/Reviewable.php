@@ -2,8 +2,6 @@
 
 namespace StarfolkSoftware\Gauge;
 
-use Illuminate\Database\Eloquent\Casts\Attribute;
-
 trait Reviewable
 {
     /**
@@ -42,49 +40,5 @@ trait Reviewable
     public function reviews()
     {
         return $this->morphMany(Gauge::$reviewModel, 'reviewable');
-    }
-
-    /**
-     * Returns the latest review.
-     */
-    public function latestReview(): Attribute
-    {
-        return Attribute::make(fn () => $this->reviews()->latest()->first());
-    }
-
-    /**
-     * Calculates the avarage rating
-     */
-    public function averageRating(): Attribute
-    {
-        return Attribute::make(fn () => $this->reviews()->avg('rating'));
-    }
-
-    /**
-     * Calculates the total value of ratings
-     */
-    public function totalRating(): Attribute
-    {
-        return Attribute::make(fn () => $this->reviews()->sum('rating'));
-    }
-
-    /**
-     * Returns the reviews count
-     *
-     * @return \Illuminate\Database\Eloquent\Casts\Attribute
-     */
-    public function reviewsCount()
-    {
-        return Attribute::make(fn () => $this->reviews()->count());
-    }
-
-    /**
-     * Returns the count of the users that have rated.
-     *
-     * @return \Illuminate\Database\Eloquent\Casts\Attribute
-     */
-    public function usersCount()
-    {
-        return Attribute::make(fn () => $this->reviews()->groupBy('user_id')->pluck('user_id')->count());
     }
 }
