@@ -1,6 +1,6 @@
 <?php
 
-namespace StarfolkSoftware\Gauge\Database\Factories;
+namespace App\Database\Factories;
 
 use App\Models\Review;
 use Illuminate\Database\Eloquent\Factories\Factory;
