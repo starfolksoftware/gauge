@@ -17,6 +17,7 @@ abstract class Review extends Model
     protected $fillable = [
         'team_id',
         'user_id',
+        'reviewer_name',
         'reviewable_type',
         'reviewable_id',
         'rating',
