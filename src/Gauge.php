@@ -79,7 +79,7 @@ final class Gauge
     {
         self::$teamModel = $model;
 
-        return new self();
+        return new self;
     }
 
     /**
@@ -91,7 +91,7 @@ final class Gauge
     {
         $model = self::teamModel();
 
-        return new $model();
+        return new $model;
     }
 
     /**
@@ -124,7 +124,7 @@ final class Gauge
     {
         $model = self::reviewModel();
 
-        return new $model();
+        return new $model;
     }
 
     /**
@@ -136,7 +136,7 @@ final class Gauge
     {
         self::$reviewModel = $model;
 
-        return new self();
+        return new self;
     }
 
     /**
@@ -148,7 +148,7 @@ final class Gauge
     {
         self::$runsMigrations = false;
 
-        return new self();
+        return new self;
     }
 
     /**
@@ -160,7 +160,7 @@ final class Gauge
     {
         self::$supportsTeams = $value;
 
-        return new self();
+        return new self;
     }
 
     /**
@@ -182,7 +182,7 @@ final class Gauge
     {
         $model = self::userModel();
 
-        return new $model();
+        return new $model;
     }
 
     /**
@@ -194,7 +194,7 @@ final class Gauge
     {
         self::$userModel = $model;
 
-        return new self();
+        return new self;
     }
 
     /**
@@ -206,7 +206,7 @@ final class Gauge
     {
         self::$supportsSoftDeletes = $value;
 
-        return new self();
+        return new self;
     }
 
     /**
@@ -218,7 +218,7 @@ final class Gauge
     {
         self::$reviewsTableName = $value;
 
-        return new self();
+        return new self;
     }
 
     /**
@@ -230,6 +230,6 @@ final class Gauge
     {
         self::$supportsSingleReviews = $value;
 
-        return new self();
+        return new self;
     }
 }

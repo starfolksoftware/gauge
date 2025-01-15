@@ -9,7 +9,7 @@ test('reviews can be added to a reviewable model', function () {
 
     $item = Item::forceCreate(['name' => 'Item 1']);
 
-    $review = new Review();
+    $review = new Review;
 
     $review->user_id = 1;
     $review->rating = 4;
