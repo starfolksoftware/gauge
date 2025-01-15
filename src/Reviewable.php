@@ -21,13 +21,13 @@ trait Reviewable
 
         $review->reviewable_type = $this->getMorphClass();
         $review->reviewable_id = $this->id;
-        
+
         if (is_object($user)) {
             $review->user_id = $user->id;
         } elseif (is_string($user)) {
             $review->reviewer_name = $user;
         }
-        
+
         $review->rating = $rating;
         $review->comment = $comment;
 
