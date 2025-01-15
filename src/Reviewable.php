@@ -7,7 +7,7 @@ trait Reviewable
     /**
      * Leaves a review on the model.
      */
-    public function review($user, int $rating, $comment = null)
+    public function review(string|object $user, int $rating, $comment = null)
     {
         $review = Gauge::newReviewModel();
 
@@ -21,7 +21,13 @@ trait Reviewable
 
         $review->reviewable_type = $this->getMorphClass();
         $review->reviewable_id = $this->id;
-        $review->user_id = $user->id;
+        
+        if (is_object($user)) {
+            $review->user_id = $user->id;
+        } elseif (is_string($user)) {
+            $review->reviewer_name = $user;
+        }
+        
         $review->rating = $rating;
         $review->comment = $comment;
 
