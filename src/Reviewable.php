@@ -179,6 +179,7 @@ trait Reviewable
 
         if ($review && is_null($review->approved_at)) {
             $review->approved_at = now();
+
             return $review->save();
         }
 
@@ -236,6 +237,7 @@ trait Reviewable
 
         if ($review && $review->approved_at) {
             $review->approved_at = null;
+
             return $review->save();
         }
 
