@@ -53,7 +53,7 @@ abstract class Review extends Model
     }
 
     /**
-     * Returns the rewiewable.
+     * Returns the reviewable.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
@@ -70,5 +70,95 @@ abstract class Review extends Model
     public function user()
     {
         return $this->belongsTo(Gauge::userModel());
+    }
+
+    /**
+     * Scope to get only approved reviews.
+     */
+    public function scopeApproved($query)
+    {
+        return $query->whereNotNull('approved_at');
+    }
+
+    /**
+     * Scope to get only pending reviews.
+     */
+    public function scopePending($query)
+    {
+        return $query->whereNull('approved_at');
+    }
+
+    /**
+     * Approve the review.
+     */
+    public function approve(): bool
+    {
+        $this->approved_at = now();
+        return $this->save();
+    }
+
+    /**
+     * Unapprove the review.
+     */
+    public function unapprove(): bool
+    {
+        $this->approved_at = null;
+        return $this->save();
+    }
+
+    /**
+     * Checks if the review is approved.
+     */
+    public function isApproved(): bool
+    {
+        return !is_null($this->approved_at);
+    }
+
+    /**
+     * Checks if the review is pending approval.
+     */
+    public function isPending(): bool
+    {
+        return is_null($this->approved_at);
+    }
+
+    /**
+     * Returns the formatted date the review was approved.
+     */
+    public function approvedDate(): ?string
+    {
+        return $this->approved_at?->format('M d, Y');
+    }
+
+    /**
+     * Returns the rating as a percentage (0-100).
+     */
+    public function ratingPercentage(int $maxRating = 5): float
+    {
+        return ($this->rating / $maxRating) * 100;
+    }
+
+    /**
+     * Format the review comment for display (e.g., truncating).
+     */
+    public function truncatedComment(int $length = 50): string
+    {
+        return str($this->comment)->limit($length);
+    }
+
+    /**
+     * Get the reviewer name or fallback to "Anonymous".
+     */
+    public function reviewerDisplayName(): string
+    {
+        return $this->reviewer_name ?: ($this->user?->name ?? 'Anonymous');
+    }
+
+    /**
+     * Get the related model's type in a human-readable format.
+     */
+    public function reviewableTypeLabel(): string
+    {
+        return class_basename($this->reviewable_type);
     }
 }
