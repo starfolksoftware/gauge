@@ -2,6 +2,10 @@
 
 All notable changes to `gauge` will be documented in this file.
 
+## v2.0.0 - 2025-01-25
+
+**Full Changelog**: https://github.com/starfolksoftware/gauge/compare/v1.5.0...v2.0.0
+
 ## v1.5.0 - 2025-01-15
 
 **Full Changelog**: https://github.com/starfolksoftware/gauge/compare/v1.4.3...v1.5.0
