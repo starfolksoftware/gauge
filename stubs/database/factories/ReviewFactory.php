@@ -16,8 +16,9 @@ class ReviewFactory extends Factory
             'user_id' => 1,
             'reviewable_type' => 'App\\Models\\Item',
             'reviewable_id' => 1,
-            'rating' => 4,
+            'rating' => $this->faker->numberBetween(1, 5),
             'comment' => $this->faker->paragraph(),
+            'approved_at' => now(),
         ];
     }
 }

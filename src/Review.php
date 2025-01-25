@@ -22,6 +22,7 @@ abstract class Review extends Model
         'reviewable_id',
         'rating',
         'comment',
+        'approved_at',
     ];
 
     /**
@@ -29,7 +30,9 @@ abstract class Review extends Model
      *
      * @var array<string, string>
      */
-    protected $casts = [];
+    protected $casts = [
+        'approved_at' => 'datetime',
+    ];
 
     /**
      * Returns the table name.

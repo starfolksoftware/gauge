@@ -1,8 +1,6 @@
 # Laravel Gauge
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/starfolksoftware/gauge.svg?style=flat-square)](https://packagist.org/packages/starfolksoftware/gauge)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/starfolksoftware/gauge/run-tests?label=tests)](https://github.com/starfolksoftware/gauge/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/starfolksoftware/gauge/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/starfolksoftware/gauge/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/starfolksoftware/gauge.svg?style=flat-square)](https://packagist.org/packages/starfolksoftware/gauge)
 
 Add reviews and ratings capabilities to your Laravel applications.
@@ -83,7 +81,139 @@ class Item extends Model
 To create a review on a reviewable model,
 
 ```php
-$branch->review($user, $rating, $comment)
+$item->review($user, $rating, $comment);
+```
+
+To retrieve the reviews of a model,
+
+```php
+$item->reviews;
+```
+
+To get the average rating for a model,
+
+```php
+$item->averageRating();
+```
+
+To get the total number of reviews for a model,
+
+```php
+$item->reviewCount();
+```
+
+To check if a model has been reviewed by a specific user,
+
+```php
+$item->hasReviewByUser($user);
+```
+
+To get all reviews for a model by a specific user,
+
+```php
+$item->reviewsByUser($user);
+```
+
+To delete all reviews for a model,
+
+```php
+$item->deleteAllReviews();
+```
+
+To get reviews with a specific rating,
+
+```php
+$item->reviewsWithRating($rating);
+```
+
+To get the highest rating given to a model,
+
+```php
+$item->highestRating();
+```
+
+To get the lowest rating given to a model,
+
+```php
+$item->lowestRating();
+```
+
+To get the latest review for a model,
+
+```php
+$item->latestReview();
+```
+
+To get the oldest review for a model,
+
+```php
+$item->oldestReview();
+```
+
+To calculate the distribution of ratings,
+
+```php
+$item->ratingDistribution();
+```
+
+To get all approved reviews for a model,
+
+```php
+$item->approvedReviews();
+```
+
+To get the total number of approved reviews,
+
+```php
+$item->approvedReviewCount();
+```
+
+To get the average rating for approved reviews,
+
+```php
+$item->averageApprovedRating();
+```
+
+To approve a specific review by ID,
+
+```php
+$item->approveReview($reviewId);
+```
+
+To approve all reviews for a model,
+
+```php
+$item->approveAllReviews();
+```
+
+To get reviews awaiting approval,
+
+```php
+$item->pendingReviews();
+```
+
+To get the total number of pending reviews,
+
+```php
+$item->pendingReviewCount();
+```
+
+To check if a model has approved reviews,
+
+```php
+$item->hasApprovedReviews();
+```
+
+To check if a model has pending reviews,
+
+```php
+$item->hasPendingReviews();
+```
+
+To mark a review as unapproved,
+
+```php
+$item->unapproveReview($reviewId);
 ```
 
 To setup the team support, add the `TeamHasReviews` trait to the team model,
@@ -110,7 +240,7 @@ $team->reviews()->save([
 To fetch reviews of a team,
 
 ```php
-$team->reviews
+$team->reviews;
 ```
 
 ## Testing
