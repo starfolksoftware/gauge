@@ -94,6 +94,7 @@ abstract class Review extends Model
     public function approve(): bool
     {
         $this->approved_at = now();
+
         return $this->save();
     }
 
@@ -103,6 +104,7 @@ abstract class Review extends Model
     public function unapprove(): bool
     {
         $this->approved_at = null;
+
         return $this->save();
     }
 
@@ -111,7 +113,7 @@ abstract class Review extends Model
      */
     public function isApproved(): bool
     {
-        return !is_null($this->approved_at);
+        return ! is_null($this->approved_at);
     }
 
     /**
